@@ -1,0 +1,55 @@
+.input-field{
+    width: 300px;
+}
+
+.left, .right, .file-container{
+    flex:1;
+}
+
+.add-form{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.submit-button{
+    display: flex;
+    justify-content: flex-end;
+    button:first-child{
+        margin-right: 3px;
+    }
+}
+
+.image-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .image-wrapper{
+        width: 152px;
+        margin-bottom: 2px;
+        position: relative;
+
+        img{
+            width: 100%;
+        }
+        i{
+            position: absolute;
+            z-index: 2;
+            right: -8px;
+            top: -8px;
+            cursor: pointer;
+        }
+    }
+}
+
+.btn{
+    background-color: #452db1
+  }
+
+  .btn:hover {
+    background-color: #5b3be7
+  }
+  .btn:active{
+    background-color: #3b94e7;
+  }

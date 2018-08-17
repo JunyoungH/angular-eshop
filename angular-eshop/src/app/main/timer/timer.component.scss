@@ -1,0 +1,14 @@
+
+
+    .timer-indicator{
+        display: flex;
+        text-align: center;
+        padding-left: 20px;
+        .timer-item{
+            margin-right: 20px;
+            div{
+                font-size:1.2em;
+                font-weight: bold;
+            }
+        }
+    }

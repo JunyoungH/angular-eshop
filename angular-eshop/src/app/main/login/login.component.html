@@ -1,0 +1,24 @@
+<div class="modal-content">
+    <div style="font-size:1.7em">Sign In</div>
+    <p>Enjoy faster check-out, order tracking and more.</p>
+    <div class="login-input-wrapper">
+              <div class="input-field col s4">
+                  <input type="text" id="email" [(ngModel)]="email">
+                  <label for="email">E-Mail</label>
+              </div>
+              <div class="input-field col s4">
+                <input type="password" id="password" [(ngModel)]="password">
+                <label for="password">Password</label>
+              </div>
+     </div>
+  </div>
+  <div class="modal-footer">
+    <div class="modal-footer-register">
+          <span>Don`t have an account?</span><br>
+          <a (click)="redirectToRegister()">Register here</a>
+    </div>
+    <div class="modal-footer-button">
+      <a class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+      <button class="waves-effect waves-green btn #303f9f indigo darken-2" (click)="login()">Sign In</button>
+    </div>
+  </div>

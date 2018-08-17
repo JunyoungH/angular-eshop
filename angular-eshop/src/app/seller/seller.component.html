@@ -1,0 +1,39 @@
+<div class="seller-container">
+  <div class="top-nav-container z-depth-1">
+    <div class="top-nav-margin">
+      <div class="top-nav-left-logo">logo</div>
+      <div class="top-nav-main ">
+        <a routerLink="/">Home</a>
+        <a routerLink="/{{parentPath}}/account">My Account</a>
+        <a style="cursor: pointer" class="order" data-target="order-list">Order</a>
+        <a (click)="logOut()">Sign Out</a>
+      </div>
+    </div>
+  </div>
+
+    <!-- Dropdown Structure -->
+    <ul id='order-list' class='dropdown-content'>
+      <li><a routerLink="/{{parentPath}}/orders/pending">Pending</a></li>
+      <li><a routerLink="/{{parentPath}}/orders/pending">On-Hold</a></li>
+      <li><a routerLink="/{{parentPath}}/orders/pending">Processing</a></li>
+      <li><a routerLink="/{{parentPath}}/orders/pending">Completed</a></li>
+      <li><a routerLink="/{{parentPath}}/orders/pending">Cancel</a></li>
+    </ul>
+
+  <div class="seller-content">
+    <div class="left-nav-container">
+      <ul class="left-nav-content">
+        <li (click)="navSelector($event)"> <a routerLink="/{{parentPath}}/dashboard"><i class="material-icons">dashboard</i> Dashboard</a></li>
+        <li (click)="navSelector($event)"> <a routerLink="/{{parentPath}}/inventory"><i class="material-icons">grid_on</i>Inventory</a></li>
+        <li (click)="navSelector($event)"> <a routerLink="/{{parentPath}}/orders"><i class="material-icons">assignment</i> Orders</a></li>
+        <li (click)="navSelector($event)"> <a routerLink="/{{parentPath}}/reviews"><i class="material-icons">comment</i> Reviews</a></li>
+        <li (click)="navSelector($event)"> <a routerLink="/{{parentPath}}/history"><i class="material-icons">import_contacts</i>History</a></li>
+        <li (click)="navSelector($event)"> <a routerLink="/{{parentPath}}/scheduler"><i class="material-icons">date_range</i>Schedule</a></li>
+      </ul>
+    </div>
+
+    <div class="seller-main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

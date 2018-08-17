@@ -1,0 +1,82 @@
+<div class="main-container">
+
+    <div class="nav-bar">
+    <div class="nav-bar-top">
+        <ul>
+            <li><span>About Us</span></li>
+            <li><span>Help Center</span></li>
+        </ul>
+    </div>
+    <div class="nav-bar-bottom" uk-sticky="bottom: #offset">
+        <div class="logo" routerLink="/main" routerLinkActive="active"><img src="../assets/demo.png" alt="demo"></div>
+        <div class="search">
+            <input type="search">
+            <a class="waves-effect waves-light btn"><i class="material-icons">search</i></a>
+            
+        </div>
+        <div class="countdown">
+           <app-timer></app-timer>
+        </div>
+        <div class="before-login" [hidden]="login">
+            <ul>
+                <li><span (click)="openModal(false)">Sign In</span></li>
+                <li><span class="login-divider">|</span></li>
+                <li><span (click)="openModal(true)">Register</span></li>
+            </ul>
+        </div>
+
+        <div class="after-login" [hidden]="!login">
+            <ul>
+                <li><span>My Page</span></li>
+                <li><span class="login-divider" style="color:#bdbdbd;" style="cursor: none">|</span></li>
+                <li><span (click)="logOut()">Sign Out</span></li>
+            </ul>
+        </div>
+
+        <div class="cart">
+            <a routerLink="/cart" routerLinkActive="active" class="waves-effect waves-light btn cart-button" ><i class="material-icons">shopping_cart</i> <span style="color: white">{{cartCounter}}</span></a>
+            
+        </div>
+    </div>
+
+    </div>
+
+    
+    <div class="main-content-container">
+        <div class="main-leftnav">
+            <ul>
+                <li class="leftnav-title">FEATURED</li>   
+                <li class="leftnav-item">New Seasonal Product</li>
+                <li class="leftnav-item">Promotion</li>              
+            </ul>
+            <ul>
+                <li class="leftnav-title">CATEGORY</li>
+                <li class="leftnav-item">Seafood</li>   
+                <li class="leftnav-item">Beef</li>
+                <li class="leftnav-item">Pork</li>
+                <li class="leftnav-item">Poultry</li>  
+                <li class="leftnav-item">Dairy</li>  
+                <li class="leftnav-item">Processed</li>                
+            </ul>
+        </div>
+        <div class="main-content">
+            <router-outlet>
+            </router-outlet>
+        </div>
+    </div>
+
+        <!-- Login modal -->
+<div id="sign-modal" class="modal">
+    <app-login [hidden]="show" 
+        (modalParam)="redirectAction($event)"
+        (loginSuccessChecker)="closeModal($event)">
+    </app-login>
+
+    <app-register [hidden]="!show"
+        (modalParam)="redirectAction($event)">
+    </app-register>        
+</div>
+
+</div>
+
+

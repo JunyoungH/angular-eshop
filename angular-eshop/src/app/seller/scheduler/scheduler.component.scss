@@ -1,0 +1,75 @@
+.scheduler-container{
+    margin-bottom: 50px;
+    .month{
+        display:flex;
+
+        .month-item{
+            text-align: center;
+            background: #303f9f;
+            color: white;
+            border-bottom: 0.01em solid white;
+            width:30px;
+            line-height: 2em;
+
+        }
+
+        .date-item{
+            line-height: 2em;
+            border-bottom: 0.01em solid white;
+            background: #efefef;
+        }
+
+        .next-year{
+            background:#452db17a;
+        }
+ 
+    }
+}
+
+.timer-wrapper{
+    margin-bottom: 10px;
+    .timer-indicator{
+        display: flex;
+        text-align: center;
+        .timer-item{
+            margin-right: 20px;
+            div{
+                font-size:1.2em;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+
+.input-wrapper{
+    display: flex;
+    margin-bottom: 10px;
+    div{
+        margin-right: 30px;
+        label{
+            margin-right: 10px;
+        }
+        input{
+            height: 2em !important;
+            width: 30px;
+            text-align: center;
+        }
+    }
+
+    button{
+        border-radius: 0;
+        box-shadow: none;
+        margin-top: 5px;
+        padding: 0px 10px 0px 10px;
+        line-height: 1em;
+        height: 30px;
+        background-color: #303f9f;
+    }
+
+}
+
+
+
+
+

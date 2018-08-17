@@ -1,0 +1,21 @@
+.table-body-column{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    text-align: center;
+    border-bottom: 0.01em solid #d2d2d2;
+    padding-top: 10px;
+    padding-bottom: 4px;
+}
+
+.quantity-input{
+    width: 40% !important;
+    height: 1em !important;
+    padding-bottom: 6px !important;
+    text-align: center;
+}
+
+.update-button{
+    height: 24px !important;
+    line-height: 1em !important;
+    background: #303f9f;
+}

@@ -1,0 +1,48 @@
+a:hover{
+    text-decoration: unset !important;
+}
+
+
+.modal-content{
+    width: 450px;
+}
+
+.login-input-wrapper{
+    margin-top: 30px;
+    div{
+        width:100%;
+    }
+}
+
+.modal-footer{
+    display: flex;
+    align-items: center;
+    padding-left:24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+    justify-content: space-between;
+    .modal-footer-register{
+        text-align: left;
+    }
+}
+
+
+.input-field input[type=text]:focus + label {
+    color: #303f9f;
+  }
+  /* label underline focus color */
+  .input-field input[type=text]:focus {
+    border-bottom: 1px solid #303f9f;
+    box-shadow: 0 1px 0 0 #303f9f;
+  }
+  
+
+  .input-field input[type=password]:focus + label {
+    color: #303f9f;
+  }
+  /* label underline focus color */
+  .input-field input[type=password]:focus {
+    border-bottom: 1px solid #303f9f;
+    box-shadow: 0 1px 0 0 #303f9f;
+  }
+  

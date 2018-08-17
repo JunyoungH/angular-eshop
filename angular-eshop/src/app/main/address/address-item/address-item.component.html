@@ -1,0 +1,26 @@
+<div class="address-book-container">
+ <div class="address-book-detail">
+
+    <div class="main-address">
+      {{address.mainAddress}}
+    </div>
+    <div class="sub-address">
+      {{address.subAddress}} , {{address.postalCode}}
+    </div>
+    <div class="city-and-country">
+      {{address.city}} , {{address.country}}
+    </div>
+    <div class="full-name">
+      {{address.fullName}}
+    </div>
+    <div class="contact-number">
+      {{address.contactNumber}}
+    </div>
+  </div>
+
+  <div class="address-type-checker" *ngIf="!addressFlag">
+    <button class="shipping waves-effect waves-light btn" (click)="setAddressType(1)" [hidden]="shippingShow">Set Shipping</button>
+    <button class="billing waves-effect waves-light btn" (click)="setAddressType(2)" [hidden]="billingShow">Set Billing</button>
+  </div>
+</div>
+

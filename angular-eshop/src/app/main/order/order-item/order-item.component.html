@@ -1,0 +1,33 @@
+
+<div class="cart-product-wrapper">
+
+  <div class="cart-product-image" [style.background]="'url(http://localhost:8080/'+cart.product.productImageList[0].name+')'">
+  </div>
+
+  <div class="cart-product-detail">
+      <div class="cart-product-name">
+          <span>{{cart.product.name}}</span>
+      </div>
+      <div class="cart-product-price">
+          <span>{{cart.product.currency}}</span>
+          <span>{{cart.product.price}}</span>
+          <span> / </span>
+          <span>{{cart.product.unit}}</span>
+      </div>
+  </div>
+
+  <div class="cart-quantity-input">
+
+          <div class="quantity-wrapper">
+            <span>{{cart.orderedQuantity}}</span>
+            <span> {{cart.product.unit}}</span>
+          </div>
+  </div>
+
+  <div class="cart-total-price">
+    <div class="total-price-warpper">
+      <span>{{cart.product.currency}} </span> <span>{{cart.totalPrice}}</span>
+    </div>
+  </div>
+
+</div>

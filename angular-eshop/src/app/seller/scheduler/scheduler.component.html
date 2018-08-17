@@ -1,0 +1,57 @@
+<div class="timer-wrapper">
+  <div><label>NEXT FLIGHT</label></div>
+  <div class="timer-indicator">
+    <div class="timer-item">
+        <div>{{day}}</div>
+        <label>DAYS</label>
+    </div>
+    <div class="timer-item">
+        <div>{{hour}}</div>
+        <label>HOURS</label>
+    </div>
+    <div class="timer-item">
+        <div>{{minute}}</div>
+        <label>MINUTES</label>
+    </div>
+    <div class="timer-item">
+        <div>{{second}}</div>
+        <label>SECONDS</label>
+    </div>
+  </div>
+
+
+</div>
+
+<div class="input-wrapper">
+
+  <div>
+    <label for="base-date">Base Date</label>
+    <input type="text" id="base-date" [(ngModel)]="scheduler.baseDate">
+   </div>
+   
+   <div>
+    <label for="flight-interval">Flight Interval</label>
+    <input type="text" id="flight-interval" [(ngModel)]="scheduler.flightInterval">
+   </div>
+   
+   <button (click)="updateFlightDate()" class="btn waves-effect waves-light">Update</button>
+
+</div>
+
+
+<div class="scheduler-container">
+  <div class="month" *ngFor="let monthItem of month; let i = index">
+    <div class="month-item" [class.next-year]="monthItem < month[0]">
+      {{monthItem}}
+    </div>
+    <div class="date-item">
+      <app-scheduler-item 
+        [lastDateOfMonth]="lastDayOfMonth[monthItem-1]" 
+        [baseDate]="flightDate[i]" 
+        [flightInterval]="scheduler.flightInterval"
+        [month]="monthItem"
+        [uId]="i"
+        (timer)="setCurrentMonthFlight($event)"></app-scheduler-item>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+
+<div class="cart-container">
+  <div class="cart-product-container">
+      <ng-container *ngFor="let cartItem of cartList">
+          <app-cart-item [cart]="cartItem" (refreshCart)="refreschCart($event)">
+          </app-cart-item>
+      </ng-container>
+
+  </div>
+
+  <div class="cart-result">
+    <div class="cart-result-title">Total Price</div>
+    <ng-container *ngIf="cartList.length > 0">
+      <div class="cart-result-content">{{cartList[cartList.length-1].product.currency}} {{totalPrice}}</div>
+    </ng-container>
+    <div><button class="waves-effect waves-light btn order-button" (click)="toOrder()">PROCEED TO CHECKOUT</button></div>
+  </div>
+</div>

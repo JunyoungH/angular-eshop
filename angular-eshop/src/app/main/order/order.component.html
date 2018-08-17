@@ -1,0 +1,54 @@
+
+<div class="order-container">
+  <div class="order-product-container">
+
+      <ng-container *ngFor="let cartItem of cartList">
+          <app-order-item [cart]="cartItem" (refreshCart)="refreschCart($event)">
+          </app-order-item>
+      </ng-container>
+
+  </div>
+
+  <div class="order-detail-container">
+    <div class="order-result">
+      <div class="order-result-title">
+        <span>Shipping & Billing</span>
+        <a class="edit-button" (click)="toEditAddress()">
+            Edit Address
+        </a>
+      </div>
+      <div class="address-empty" [hidden]="addressShow">
+        <app-address-item [address]="shippingAddress" [addressFlag]="true"></app-address-item>
+        <app-address-item [address]="billingAddress" [addressFlag]="true"></app-address-item>
+      </div>
+      <div class="address-container" [hidden]="!addressShow">
+
+      </div>
+
+    </div>
+
+    <div class="order-result">
+        <div class="order-result-title">
+          <span>Payment</span>
+          <a class="edit-button" (click)="toEditAddress()">
+            Edit Credit Card
+          </a>
+        </div>
+        <!-- <div class="payment-type">
+          <div class="payment-card">
+            <input type="checkbox" [(ngModel)]="">
+          </div>
+          <div class="payment-cash">
+
+          </div>
+        </div> -->
+    </div>
+
+    <div class="order-result">
+      <div class="order-result-title">Total Price</div>
+        <div class="order-result-content">{{cartList[cartList.length-1].product.currency}} {{totalPrice}}</div>
+      <div><button class="waves-effect waves-light btn order-button" (click)="confrimOrder()">PROCEED TO ORDER</button></div>
+    </div>
+  </div>
+</div>
+

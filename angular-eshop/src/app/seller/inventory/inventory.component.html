@@ -1,0 +1,15 @@
+<div class="inventory-container">
+    <div class="tab-wrapper">
+        <ul>
+            <li (click)="switchTab(true)" id="add" class="clicked">ADD</li>
+            <li (click)="switchTab(false)" id="list">LIST</li>
+        </ul>
+    </div>
+
+    <ng-template [ngIf]="switch" [ngIfElse]="list">
+        <app-add (toList)="switchTab($event)"></app-add>
+    </ng-template>
+    <ng-template #list>
+        <app-list></app-list>
+    </ng-template>
+</div>

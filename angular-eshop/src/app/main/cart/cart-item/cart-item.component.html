@@ -1,0 +1,35 @@
+
+<div class="cart-product-wrapper">
+
+    <div class="cart-product-image" [style.background]="'url(http://localhost:8080/'+cart.product.productImageList[0].name+')'">
+    </div>
+
+    <div class="cart-product-detail">
+        <div class="cart-product-name">
+            <span>{{cart.product.name}}</span>
+        </div>
+        <div class="cart-product-price">
+            <span>{{cart.product.currency}}</span>
+            <span>{{cart.product.price}}</span>
+            <span> / </span>
+            <span>{{cart.product.unit}}</span>
+        </div>
+    </div>
+
+    <div class="cart-quantity-input">
+        <div class="quantity-wrapper">
+            <input type="text" 
+                class="uk-input quantity{{idx}}" 
+                [(ngModel)]="cart.orderedQuantity" 
+                [value]="cart.orderedQuantity" 
+                (keyup)="inputValidation()"
+                placeholder="{{cart.product.unit}}" maxlength="3"  style="text-align: center">
+            <span>{{cart.product.unit}}</span>
+        </div>
+        <div class="button-wrapper">
+            <button class="waves-effect waves-light btn update-button" (click)="updateCart($event)"><i class="material-icons">autorenew</i></button>
+            <button class="waves-effect waves-light btn remove-button" (click)="removeCart($event)"><i class="material-icons">clear</i></button>
+        </div>
+    </div>
+
+</div>

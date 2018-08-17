@@ -1,0 +1,98 @@
+<div class="modal-content">
+    <div style="font-size:1.7em">Register with your email</div>
+    <p>Sign up with Us. We're always here for you with great deals and a worry-free shopping experience..</p>
+
+    <div class="user-type-tab">
+      <div style="margin-right: 20px;" id="2" class="selected" (click)="selectUserType($event)"><a>Individual User</a></div>
+      <div id="1" (click)="selectUserType($event)"><a>Business User</a></div>
+    </div>
+
+    <div class="login-input-wrapper" [hidden]="showByUserType">
+        <div class="input-field col s4">
+          <input type="text" id="userEmail" [(ngModel)]="account.email">
+          <label for="userEmail">E-Mail</label>
+        </div>
+        <div class="password-wrapper">
+          <div class="input-field col s4" style="margin-right: 10px;">
+            <input type="password" id="userPassword" [(ngModel)]="account.password">
+            <label for="userPassword">Password</label>
+          </div>
+          <div class="input-field col s4">
+            <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword">
+            <label for="confirmPassword">Confirm Password</label>
+          </div>
+        </div>
+    </div>
+     
+     <div class="register-input-wrapper" [hidden]="!showByUserType">
+        <div class="flex-box">
+          <div class="left">
+            <div class="account-info">
+              <p>Account Information</p>
+              <div class="input-field col s4">
+                <input type="text" id="bizUserEmail" [(ngModel)]="account.email">
+                <label for="bizUserEmail">E-Mail</label>
+              </div>
+              <div class="password-wrapper">
+                <div class="input-field col s4" style="margin-right: 10px;">
+                  <input type="password" id="bizUserPassword" [(ngModel)]="account.password">
+                  <label for="bizUserPassword">Password</label>
+                </div>
+                <div class="input-field col s4">
+                  <input type="password" id="bizConfirmPassword" [(ngModel)]="confirmPassword">
+                  <label for="bizConfirmPassword">Confirm Password</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="company-info">
+                <p>Company Information</p>
+                <div class="input-field col s4">
+                  <input type="text" id="companyName" [(ngModel)]="account.companyName">
+                  <label for="companyName">Company Name</label>
+                </div>
+                <div class="input-field col s4">
+                  <input type="text" id="companyContact" [(ngModel)]="account.companyContact">
+                  <label for="companyContact">Office Contact Number</label>
+                </div>
+             
+            </div>
+          </div>
+      
+        
+        
+          <div class="personal-info">
+              <p>Personal Information</p>
+              <div class="name-field-wrapper">
+                <div class="input-field col s4">
+                  <input type="text" id="firstName" [(ngModel)]="account.firstName">
+                  <label for="firstName">First Name</label>
+                </div>
+             
+                <div class="input-field col s4" style="margin-right: 10px;">
+                  <input type="text" id="lastName" [(ngModel)]="account.lastName">
+                  <label for="lastName">Last Name</label>
+                </div>
+              </div>
+              <div class="input-field col s4">
+                <input type="text" id="mobileNumber" [(ngModel)]="account.mobileNumber">
+                <label for="mobileNumber">Mobile Number</label>
+              </div>
+              
+          </div>
+        </div>
+      </div>
+  
+    </div>
+
+
+  <div class="modal-footer">
+    <div class="modal-footer-register">
+          <span>Already have an account?</span><br>
+          <a (click)="redirectToSignIn()">Sign In</a>
+    </div>
+    <div class="modal-footer-button">
+      <a class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+      <button class="waves-effect waves-green btn #303f9f indigo darken-2" (click)="registerUser()">Create Account</button>
+    </div>
+  </div>

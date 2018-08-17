@@ -1,0 +1,17 @@
+<div class="table-body-column">
+  <div>{{cart.product.productId}}</div>
+  <div>{{cart.product.name}}</div>
+  <div>{{cart.product.currency}} {{cart.product.price}} / {{cart.product.unit}}</div>
+  <div>{{cart.orderedQuantity}} {{cart.product.unit}}</div>
+  <div><input type="text" class="quantity-input" (keyup)="setTotalPrice()" [(ngModel)]="cart.actualQuantity"><span> {{cart.product.unit}}</span></div>
+  <div>{{cart.totalPrice}} {{cart.product.currency}}</div>
+  <div>
+      <ng-container *ngIf="cart.status === 0; else elseTemplate">
+       <span style="color:#ff6d15">PENDING</span> 
+      </ng-container>
+      <ng-template #elseTemplate>
+       <span style="color: greenyellow">COMPLETED</span>  
+      </ng-template>
+  </div>
+  <div><button class="btn waves-effect waves-light update-button" (click)="updateOrder()">UPDATE</button></div>
+</div>

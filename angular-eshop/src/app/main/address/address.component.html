@@ -1,0 +1,94 @@
+<div class="address-title">
+  Address Book
+</div>
+
+<div class="address-container">
+
+  <div class="addres-add-wrapper">
+    <div class="add-address-title">
+      <span>Add Address</span>
+    </div>
+    <div class="short-field">
+      <div class="full-name input-field">
+        <input type="text" id="full-name-input" [(ngModel)]="address.fullName">
+        <label for="full-name-input">Full Name</label>
+      </div>
+      <div class="contact-number input-field">
+        <input type="text" id="contact-number-input" [(ngModel)]="address.contactNumber">
+        <label for="contact-number-input">Contact Number</label>
+      </div>
+    </div>
+    <div class="main-address input-field">
+      <input type="text" id="main-address-input" [(ngModel)]="address.mainAddress">
+      <label for="main-address-input">Address 1</label>
+    </div>
+
+    <div class="short-field">
+      <div class="sub-address input-field">
+        <input type="text" id="sub-address-input" [(ngModel)]="address.subAddress">
+        <label for="sub-address-input">Address 2</label>
+      </div>
+
+      <div class="postal-code input-field">
+        <input type="text" id="postal-code-input" [(ngModel)]="address.postalCode">
+        <label for="postal-code-input">Potal Code</label>
+      </div>
+    </div>
+
+    <div class="short-field">
+      <div class="city input-field">
+        <input type="text" id="city-input" [(ngModel)]="address.city">
+        <label for="city-input">City</label>
+      </div>
+      <div class="country input-field">
+        <input type="text" id="country-input" [(ngModel)]="address.country">
+        <label for="country-input">Country</label>
+      </div>
+    </div>
+
+    <div class="address-add-button">
+      <button class="waves-effect waves-light btn add-button" (click)="addAddress()">Add Address</button>
+    </div>
+
+  </div>
+
+  <div class="address-list-wrapper">
+    <div class="address-list-top">
+      <!-- Shippinhg address -->
+      <div class="shipping-address-wrapper">
+        <div class="shipping-address-title">
+          <span>Shipping Address</span>
+        </div>
+        <div class="shipping-address">
+          <app-address-item [address]="shipplingAddress" [addressFlag]="true"></app-address-item>
+        </div>
+      </div>
+
+      <!-- billing address -->
+      <div class="billing-address-wrapper">
+        <div class="billing-address-title">
+          <span>Billing Address</span>
+        </div>
+        <div class="billing-address">
+          <app-address-item [address]="billingAddress" [addressFlag]="true"></app-address-item>
+        </div>
+      </div>
+    </div>
+
+    <div class="address-list-bottom">
+      <div class="address-item-wrapper">
+        <!-- {{address}} -->
+        <ng-container *ngFor="let address of addressList">
+          <app-address-item [address]="address" (addressType)="setShippingAndBillingAddress($event)"></app-address-item>
+        </ng-container>
+
+      </div>
+    </div>
+
+    <div class="address-confirm-button">
+      <button class="waves-effect waves-light btn confirm-button" (click)="backPage()">Confirm & Back</button>
+    </div>
+
+  </div>
+
+</div>

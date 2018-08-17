@@ -1,0 +1,95 @@
+<form (ngSubmit)="onSubmit()" id="add-form" class="add-form" enctype="multipart/form-data" #productForm="ngForm">
+  
+  <div class="left">
+    <div class="input-field">
+      <input type="text" id="name" name="name"[(ngModel)]="product.name">
+      <label for="name">Product Name</label>
+    </div>
+
+    <div class="input-field">
+      <input type="text" id="price" name="price" [(ngModel)]="product.price">
+      <label for="price">Price</label>
+    </div>
+
+    <div class="input-field">
+        <select [(ngModel)]="product.currency" name="currency">
+          <option value="" disabled selected>Curruncy</option>
+          <option value="SGD">SGD</option>
+          <option value="YEN">YEN</option>
+          <option value="USD">USD</option>
+          <option value="WON">WON</option>
+          <option value="EURO">EURO</option>
+          <option value="MYR">MYR</option>
+        </select>
+        <label>Currency</label>
+      </div>
+
+    <div class="input-field">
+      <select [(ngModel)]="product.unit" name="unit">
+        <option value="" disabled selected>Choose type of Unit</option>
+        <option value="KG">KG</option>
+        <option value="G">G</option>
+        <option value="CTN">CTN</option>
+        <option value="PKT">PKT</option>
+        <option value="LT">LT</option>
+        <option value="BOTTLE">BOTTLE</option>
+        <option value="TIN">TIN</option>
+      </select>
+      <label>Unit</label>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="input-field">
+      <input type="text" id="origin" [(ngModel)]="product.countryOrigin" name="countryOrigin">
+        <label for="origin">Country Origin</label>
+      </div>
+
+    <div class="input-field">
+        <select [(ngModel)]="product.category" name="category">
+          <option value="" disabled selected>Choose Category</option>
+          <option value="Seafood">Seafood</option>
+          <option value="Beef">Beef</option>
+          <option value="Pork">Pork</option>
+          <option value="Poultry">Poultry</option>
+          <option value="Dairy">Dairy</option>
+          <option value="Processed">Processed</option>
+        </select>
+        <label>Category</label>
+      </div>
+
+
+    <div class="input-field">
+        <textarea id="discription" class="materialize-textarea" name="discription" [(ngModel)]="product.discription"></textarea>
+        <label for="discription">Discription</label>
+      </div>
+  </div>
+
+  
+  <div class="file-container">
+    <div class="file-field input-field">
+        <div class="btn">
+          <span>Image</span>
+          <input type="hidden" id="image-selector">
+          <input type="file" accept="image/*" multiple (change)="imageUpload($event)">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text" name="image" placeholder="Upload one or more files">
+        </div>
+    </div> 
+    
+    <div class="image-container">
+      <div class="image-wrapper" *ngFor="let image of imageList; let idx = index" 
+      (mouseover)="showRemove($event)" (mouseleave)="hideRemove($event)">
+        <img [src]="image">
+        <i class="material-icons" [hidden]="true" (click)="removeImage(idx)">cancel</i>
+      </div>
+      
+    </div>
+  </div>
+
+</form>
+<div class="submit-button">
+    <button class="waves-effect waves-light btn" form="add-form" type="reset">Reset</button>
+    <button class="waves-effect waves-light btn" form="add-form" type="submit">Submit</button>
+</div>

@@ -1,0 +1,36 @@
+<div class="main-content-container">
+
+  <div class="slider-container"  uk-slideshow="animation:fade; autoplay:true; pause-on-hover:true">
+    <div class="uk-position-relative uk-visible-toggle uk-light">
+
+      <div class="uk-slideshow-items">
+          <li>
+              <img src="../../../assets/banner1.jpg" alt="">
+          </li>
+          <li>
+              <img src="../../../assets/banner2.jpg" alt="">
+          </li>
+          <li>
+              <img src="../../../assets/banner3.jpg" alt="">
+          </li>
+        </div>
+
+      <a class="uk-position-center-left uk-position-small uk-hidden-hover" uk-slidenav-previous uk-slideshow-item="previous"></a>
+      <a class="uk-position-center-right uk-position-small uk-hidden-hover" uk-slidenav-next uk-slideshow-item="next"></a>
+
+    </div>
+      <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin" style="position:relative; bottom:46px;"></ul>
+  </div>
+  <div class="product-list-container">
+
+    <ng-container *ngFor="let product of productList; let idx = index">
+      <app-main-item [product]="product" [idx]="idx" (productDetail)="openProductModal($event)"></app-main-item>
+    </ng-container>
+
+  </div>
+</div>
+
+        <!-- Login modal -->
+<div id="product-modal" class="modal">
+  <app-product></app-product>
+</div>

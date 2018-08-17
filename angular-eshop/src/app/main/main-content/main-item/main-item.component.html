@@ -1,0 +1,39 @@
+<div class="product-item">
+  <div class="product-image" (click)="productDetailView()" [style.background]="'url(http://localhost:8080/'+product.productImageList[0].name+')'">
+  </div>
+  <div class="product-name">
+    <span>{{product.name}}</span>
+  </div>
+  <div class="company-name">
+    <span>{{product.company}}</span>
+  </div>
+  <div class="product-price">
+      <span>{{product.currency}} {{product.price}}</span>
+      <span> / </span>
+      <span>{{product.unit}}</span>
+  </div>
+  <div class="quantity-input" [hidden]="cartIn">
+
+      <input type="text" class="uk-input quantity{{idx}}" 
+      [(ngModel)]="cart.orderedQuantity"
+      (keyup)="inputValidation()" 
+      placeholder="{{product.unit}}" maxlength="3"  style="text-align: center">
+
+    <button class="waves-effect waves-teal btn #303f9f indigo darken-2 add-button" (click)="addCart($event)">ADD</button>
+    
+  </div>
+
+  <div class="quantity-input" [hidden]="!cartIn">
+
+        <input type="text" 
+        class="uk-input quantity{{idx}}" 
+        [(ngModel)]="cart.orderedQuantity" 
+        [value]="cart.orderedQuantity" 
+        (keyup)="inputValidation()"
+        placeholder="{{product.unit}}" maxlength="3"  style="text-align: center">
+  
+      <button class="waves-effect waves-light btn update-button" (click)="updateCart($event)"><i class="material-icons">autorenew</i></button>
+      <button class="waves-effect waves-light btn remove-button" (click)="removeCart($event)"><i class="material-icons">clear</i></button>
+      
+  </div>
+</div>
